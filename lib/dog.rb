@@ -3,11 +3,10 @@ class Dog
   attr_reader :id
 
   
-  def initialize(name:, breed:, id: nil)
+  def initialize(id=nil, name, breed)
     @id = id
     @name = name
     @breed = breed
-
   end
   
   def self.create_table
