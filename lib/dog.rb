@@ -63,5 +63,17 @@ end
       self.new_from_db(row)
     end.first
   end
+  
+  def self.find_or_create_by(name:, breed:)
+    dog = DB[:conn].execute("SELECT * FROM dogs
+    WHERE name = ? AND breed = ? LIMIT 1", name, breed)
+      if !dog.empty?
+        row = dog[0]
+        dog = Dog.new(id: row[0], name: row[1], breed: row[2])
+      else
+        dog = self.create(name: name, breed: breed)
+  end
+  dog
+end
 end
   
