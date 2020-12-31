@@ -31,5 +31,6 @@ class Dog
     if self.id 
       self.update 
     else 
-      "INSERT INTO dogs VALUES ("
+      "INSERT INTO dogs name, breed
+      VALUES ("
 end 
