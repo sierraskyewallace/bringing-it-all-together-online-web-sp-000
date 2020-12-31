@@ -3,7 +3,7 @@ class Dog
   attr_reader :id
 
   
-  def initialize(id:nil, name:, breed:)
+  def initialize(name:, breed:, id: nil)
     @id = id
     @name = name
     @breed = breed
@@ -31,7 +31,7 @@ class Dog
         Dog.new(id: row[0],name: row[1], breed: row[2])
   end
   
-  def self.create(name, breed)
+  def self.create(name:, breed:)
     dog = Dog.new(name, breed)
     dog.save
     dog
