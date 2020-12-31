@@ -23,12 +23,11 @@ class Dog
     sql = <<-SQL
       DROP TABLE IF EXISTS dogs
       SQL
-
      DB[:conn].execute(sql) 
   end
   
   def self.new_from_db(row)
-        Dog.new(id: row[0],name: row[1], breed: row[2])
+    Dog.new(id: row[0],name: row[1], breed: row[2])
   end
   
   def self.create(name:, breed:)
@@ -48,13 +47,10 @@ class Dog
      DB[:conn].execute(sql, self.name, self.breed)
      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
   end
+end
   
   def update
     sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end
-  
-  
-  
-  
 end 
