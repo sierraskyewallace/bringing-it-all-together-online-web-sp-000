@@ -29,7 +29,7 @@ class Dog
   
   def self.new_from_db(row)
         Dog.new(id: row[0],name: row[1], breed: row[2])
-    end
+  end
   
   def self.create(name:, breed:)
     dog = Dog.new(name, breed)
@@ -51,7 +51,7 @@ class Dog
   end
   
    def self.find_by_id(id)
-     
+ end
   
   
   
